@@ -39,4 +39,4 @@ $$
 
 ## 评论
 
-评论功能的实现由utterances改为了Giscus。这一库具有Vue支持。
+评论功能的实现由Utterances改为了Giscus。这一库具有Vue支持。
