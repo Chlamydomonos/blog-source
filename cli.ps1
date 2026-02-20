@@ -2,6 +2,10 @@
 # 获取脚本所在目录
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
+# 记录当前工作目录到环境变量，供pnpm命令读取
+$PreviousSourceWorkDir = $env:SOURCE_WORK_DIR
+$env:SOURCE_WORK_DIR = (Get-Location).Path
+
 # 计算目标目录路径（向上5级目录）
 $TargetDir = Join-Path $ScriptDir "../../../../.."
 
@@ -24,4 +28,12 @@ try {
 finally {
     # 恢复原始工作目录
     Pop-Location
+
+    # 恢复执行前的环境变量值
+    if ($null -ne $PreviousSourceWorkDir) {
+        $env:SOURCE_WORK_DIR = $PreviousSourceWorkDir
+    }
+    else {
+        Remove-Item Env:SOURCE_WORK_DIR -ErrorAction SilentlyContinue
+    }
 }
