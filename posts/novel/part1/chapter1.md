@@ -2,6 +2,7 @@
 createdAt: 1771459200001
 title: 第24位异乡人：宇宙回响 - 第一章
 category: 第24位异乡人：宇宙回响/第一卷
+prev: ../preface.md
 tags:
 - 小说
 - 第24位异乡人：宇宙回响
